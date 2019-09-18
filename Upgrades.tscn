@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Upgrades.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/menu_click.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/menu.png" type="Texture" id=3]
+[ext_resource path="res://Fonts/Breathe Fire.otf" type="DynamicFontData" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "botao",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=3]
+size = 63
+font_data = ExtResource( 4 )
+
+[node name="Upgrades" type="Node2D"]
+position = Vector2( -120.889, 126.466 )
+scale = Vector2( 0.59, 0.73 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 554.993, 270.146 )
+scale = Vector2( 1.347, 1.409 )
+frames = SubResource( 1 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 385.0
+margin_top = 522.0
+margin_right = 680.0
+margin_bottom = 587.0
+flat = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Button"]
+position = Vector2( 132.246, 53.4472 )
+scale = Vector2( 0.524, 0.688 )
+frames = SubResource( 2 )
+animation = "botao"
+
+[node name="Label" type="Label" parent="Button"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -168.136
+margin_top = -65.4794
+margin_right = 161.864
+margin_bottom = 69.5206
+custom_fonts/font = SubResource( 3 )
+text = "Upgrades
+"
+align = 1
+valign = 3
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
