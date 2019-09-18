@@ -17,4 +17,5 @@ extents = Vector2( 26.4312, 19.9285 )
 frames = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 8, 12 )
 shape = SubResource( 2 )
