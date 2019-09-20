@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Populacao.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Upgrades.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Recursos.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Informações.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=6]
+
+[node name="Main" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Populacao" parent="." instance=ExtResource( 2 )]
+position = Vector2( -126.667, 238.166 )
+scale = Vector2( 0.5, 0.62 )
+
+[node name="Upgrades" parent="." instance=ExtResource( 3 )]
+position = Vector2( 121.765, 224.17 )
+scale = Vector2( 0.5, 0.62 )
+
+[node name="Recursos" parent="." instance=ExtResource( 4 )]
+position = Vector2( 243.767, 368.567 )
+scale = Vector2( 0.5, 0.62 )
+
+[node name="Informacoes" parent="." instance=ExtResource( 5 )]
+position = Vector2( -1.16635, 1.16635 )
+
+[node name="HUD" parent="." instance=ExtResource( 6 )]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
+
+[node name="SpeedTime" type="Button" parent="Timer"]
+margin_left = 12.0
+margin_top = 48.0
+margin_right = 66.0
+margin_bottom = 68.0
+text = "Speed"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 892.0
+margin_top = 489.0
+margin_right = 1017.0
+margin_bottom = 534.0
+text = "info"
+[connection signal="hit" from="HUD" to="." method="_on_HUD_hit"]
+[connection signal="map" from="HUD" to="." method="_on_HUD_map"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="Timer/SpeedTime" to="." method="_on_SpeedTime_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

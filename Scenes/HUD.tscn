@@ -1,13 +1,13 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://HUD.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/Breathe Fire.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://Sprites/menu.png" type="Texture" id=3]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 64
 font_data = ExtResource( 2 )
 
@@ -27,6 +27,7 @@ font_data = ExtResource( 2 )
 script = ExtResource( 1 )
 
 [node name="MapaSprite" type="ColorRect" parent="."]
+visible = false
 margin_left = -2.0
 margin_top = 0.544495
 margin_right = 1024.0
@@ -52,29 +53,29 @@ margin_left = -3.45547
 margin_top = 1.08905
 margin_right = 78.5445
 margin_bottom = 61.0891
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "
 	Tempo
 "
 align = 1
 valign = 1
 
-[node name="Button" type="Button" parent="."]
+[node name="StartButton" type="Button" parent="."]
 margin_left = 384.0
 margin_top = 303.961
 margin_right = 661.0
 margin_bottom = 382.961
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "START"
 flat = true
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Button"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="StartButton"]
 position = Vector2( 133.21, 57.0897 )
 scale = Vector2( 0.415429, 0.598747 )
 frames = SubResource( 3 )
 animation = "botao"
 
-[node name="Texto_botao" type="Label" parent="Button"]
+[node name="Texto_botao" type="Label" parent="StartButton"]
 margin_left = 3.43213
 margin_top = 6.0
 margin_right = 264.432
@@ -83,4 +84,12 @@ custom_fonts/font = SubResource( 4 )
 text = "Start"
 align = 1
 valign = 1
-[connection signal="pressed" from="Button" to="." method="new_game"]
+
+[node name="populacao" type="Label" parent="."]
+margin_left = 833.474
+margin_top = 24.448
+margin_right = 972.474
+margin_bottom = 72.448
+align = 1
+valign = 1
+[connection signal="pressed" from="StartButton" to="." method="new_game"]
