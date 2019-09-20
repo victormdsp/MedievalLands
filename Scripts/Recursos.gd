@@ -6,10 +6,15 @@ onready var TweenNode = get_node("Tween")
 
 #Função ready 
 func _ready():
+	set_process_input(true)
 	$Button/AnimatedSprite.hide() #Esconder da sprite do botão 
 	$Button/Label.hide() #Esconder do texto do botão 
 	$AnimatedSprite.hide() #Esconder a sprite da aba 
 	$Button.hide() #Esconder o botão
+	
+func _input(event):
+	if Input.is_key_pressed(KEY_E):#Se user aperta tecla E
+		_on_Button_pressed()
 
 #Sinal de botão 
 func _on_Button_pressed():
