@@ -26,7 +26,8 @@ size = 63
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 35
+size = 50
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 4 )
 
 [node name="Upgrades" type="Node2D"]
@@ -70,15 +71,17 @@ text = "Upgrades
 align = 1
 valign = 3
 
-[node name="Tween" type="Tween" parent="."]
-
 [node name="nivel" type="Button" parent="."]
-margin_left = 407.0
+margin_left = 411.36
 margin_top = 258.0
-margin_right = 686.0
-margin_bottom = 307.0
+margin_right = 752.36
+margin_bottom = 317.0
 rect_scale = Vector2( 0.7, 1 )
 custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Upgrade Castelo"
+flat = true
+
+[node name="Tween" type="Tween" parent="."]
 [connection signal="pressed" from="upgradeButton" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="nivel" to="." method="_on_nivel_pressed"]
