@@ -11,6 +11,8 @@ var quantidadeMetal = 0 #Quantidade de metal necessária para passar o nível do
 var quantidadePopulacao = 20 #Quantidade que aumentará na população total 
 signal castelo #Sinal para receber a quantidade de recursos que o jogador possui
 
+#Variavel teste
+var gostodebolo = 0
 
 #Função ready
 func _ready():
