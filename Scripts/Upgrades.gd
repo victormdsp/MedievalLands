@@ -4,9 +4,17 @@ extends Node2D
 var cont  = 0 #Contador aux
 onready var TweenNode = get_node("Tween")
 
+#Variáveis do Castelo
+var nivelC = 1 #Nível do castelo
+var quantidadeMadeira = 0 #Quantidade de madeira necessária para passar o nível do castelo
+var quantidadeMetal = 0 #Quantidade de metal necessária para passar o nível do castelo
+var quantidadePopulacao = 20 #Quantidade que aumentará na população total 
+signal castelo #Sinal para receber a quantidade de recursos que o jogador possui
+
+
 #Função ready
 func _ready():
-	set_process_input(true)
+	set_process_input(true) 
 	$Button/AnimatedSprite.hide() #Esconder da sprite do botão 
 	$Button/Label.hide() #Esconder do texto do botão 
 	$AnimatedSprite.hide() #Esconder a sprite da aba 
@@ -14,7 +22,8 @@ func _ready():
 	
 func _input(event):
 	if Input.is_action_just_pressed("ui_2"):#Se user aperta tecla W
-		_on_Button_pressed()
+    _on_Button_pressed()
+
 
 #Sinal de botão 
 func _on_Button_pressed():
@@ -28,5 +37,18 @@ func _on_Button_pressed():
 		cont = 0 #Reset do contador
 		
 func movimento(value):
-	$AnimatedSprite.position.y = value
-	pass
+	$AnimatedSprite.position.y = value	
+
+#Função para saber se houve upgrade no castelo
+func castelo(madeira , metal , populacaoTotal):
+	if quantidadeMadeira <= madeira and quantidadeMetal <= metal: #Caso os recursos q o jogador possui sejam maiores ou iguais o requisito 
+		nivelC += 1 #Aumenta o nível do castelo em 1
+		quantidadeMadeira += 100 #Aumenta a quantidade de madeira necessária para o próximo nível
+		quantidadeMetal += 100 #Aumenta a quantidade de metal necessário para o próximo nível
+		quantidadePopulacao += quantidadePopulacao #Aumenta a população que fica viva  
+		return quantidadePopulacao #Retorna a quantidade de população atual após o upgrade
+
+#Função para saber se o botão de upgrade foi pressionado
+func _on_nivel_pressed():
+	emit_signal("castelo") #Emite um sinal para receber informações de outros nós
+
