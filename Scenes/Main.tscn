@@ -15,7 +15,7 @@ position = Vector2( -126.667, 238.166 )
 scale = Vector2( 0.5, 0.62 )
 
 [node name="Upgrades" parent="." instance=ExtResource( 3 )]
-position = Vector2( 121.765, 224.17 )
+position = Vector2( 117.765, 227.17 )
 scale = Vector2( 0.5, 0.62 )
 
 [node name="Recursos" parent="." instance=ExtResource( 4 )]
@@ -23,7 +23,7 @@ position = Vector2( 243.767, 368.567 )
 scale = Vector2( 0.5, 0.62 )
 
 [node name="Informacoes" parent="." instance=ExtResource( 5 )]
-position = Vector2( -1.16635, 1.16635 )
+position = Vector2( -2.16635, 2.16635 )
 
 [node name="HUD" parent="." instance=ExtResource( 6 )]
 
