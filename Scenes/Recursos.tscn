@@ -26,9 +26,15 @@ size = 50
 font_data = ExtResource( 4 )
 
 [node name="Recursos" type="Node2D"]
-position = Vector2( -290.825, 281.737 )
+position = Vector2( 1339.36, -50.4514 )
 scale = Vector2( 0.59, 0.73 )
 script = ExtResource( 1 )
+
+[node name="mensagem" type="Label" parent="."]
+margin_left = -1174.8
+margin_top = 171.043
+margin_right = -828.797
+margin_bottom = 370.043
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 785.878, 401.924 )
@@ -38,6 +44,20 @@ animation = "aba"
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="PegarR" type="Button" parent="."]
+margin_left = -2203.45
+margin_top = 698.994
+margin_right = -1913.45
+margin_bottom = 819.994
+
+[node name="PegarM" type="Button" parent="."]
+margin_left = -1706.55
+margin_top = 682.758
+margin_right = -1388.55
+margin_bottom = 814.758
 
 [node name="Button" type="Button" parent="."]
 margin_left = 617.0
@@ -61,6 +81,6 @@ text = "Recursos
 "
 align = 1
 valign = 1
-
-[node name="Tween" type="Tween" parent="."]
+[connection signal="pressed" from="PegarR" to="." method="pegarmadeira"]
+[connection signal="pressed" from="PegarM" to="." method="pegarmetal"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
