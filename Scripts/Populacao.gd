@@ -7,6 +7,7 @@ onready var TweenNode = get_node("Tween")
 #Função ready
 func _ready():
 	set_process_input(true)
+	$PopulacaoLabel.hide()
 	$Button/AnimatedSprite.hide() #Esconder da sprite do botão 
 	$Button/Label.hide() #Esconder do texto do botão 
 	$AnimatedSprite.hide() #Esconder a sprite da aba 
@@ -14,13 +15,14 @@ func _ready():
 	quantidade = 20 #Quantidade inicial da população 
 	
 func _input(event):
-	if Input.is_key_pressed(KEY_Q):#Se user aperta tecla Q
+	if Input.is_action_just_pressed("ui_1"):#Se user aperta tecla Q
 		_on_Button_pressed()
     
 
 #Sinal de botão 
 func _on_Button_pressed():
 	$AnimatedSprite.show() #Mostrar a aba quando pressionado 
+	$PopulacaoLabel.show()
 	TweenNode.interpolate_method(self, "movimento", 50+502, 280, 1.0, Tween.TRANS_BACK, Tween.EASE_OUT)
 	TweenNode.start()
 	cont += 1
@@ -31,5 +33,6 @@ func _on_Button_pressed():
 		
 func movimento(value):
 	$AnimatedSprite.position.y = value
+	$PopulacaoLabel.rect_position.y = value
 	pass
 	

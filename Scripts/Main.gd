@@ -22,6 +22,7 @@ func new_game():
 	$Populacao/Button/AnimatedSprite.show()
 	$Populacao/Button/Label.show()
 	$Populacao/Button.show()
+	$Populacao/PopulacaoLabel.text = str("Population: ",$Populacao.quantidade)
 	$Recursos/Button/AnimatedSprite.show()
 	$Recursos/Button/Label.show()
 	$Recursos/Button.show()
@@ -30,8 +31,6 @@ func new_game():
 	$Upgrades/Button.show()
 	$HUD/Time.show()
 	$HUD/Label.show()
-	$HUD/populacao.text = str("População: ",$Populacao.quantidade)
-	$HUD/populacao.show()
 	$HUD/Label.text = "0" #Início do ano como 0 
 	$Timer.start() #Start do tempo 
 	$Button.show()
@@ -45,7 +44,7 @@ func _on_Timer_timeout():
 		armazem2 = nascer() #Chamda da função nascer e armazena na variável aux2
 		armazem1 = evento(_randomize_my_variable(event),armazem2) #Chamda da função evento juntamente com a função de randomizar uma variável
 		auxpop = populacao(armazem1,armazem2) #Chamada da função para atualizar população
-		$HUD/populacao.text =  str("População: ",$Populacao.quantidade) 
+		$Populacao/PopulacaoLabel.text =  str("Population: ",$Populacao.quantidade) 
 		cont += 10 #Contador aumenta para mantes de 10 em 10 anos
 			
 #Sinal para o start do jogo 
@@ -93,7 +92,7 @@ func evento(rand,popR):
 
 #Função nascer ( baseada no tempo , quantas pessoas nascem no jogo)		
 func nascer():
-	var popu = randi()%$Populacao.quantidade / 2 #Variável para randomizar uma quantidade de pessoas que nascem 
+	var popu = randi()%$Populacao.quantidade+1/ 2 #Variável para randomizar uma quantidade de pessoas que nascem 
 	return popu #Retorna a variável popu
 	
 #Função População
@@ -135,11 +134,17 @@ func _on_Button_pressed():
 
 
 func _on_SpeedTime_pressed():
-	if $Timer.wait_time <= 1.0:
+	if $Timer.wait_time <= 0.7:
 		$Timer.wait_time -= 0.2
+		if $Timer.wait_time <= 0.4 and $Timer.wait_time >= 0.1:
+			$Timer/SpeedTime/AnimatedSprite.animation = "tempo_3"
+		else:
+			$Timer/SpeedTime/AnimatedSprite.animation = "tempo_2"
 		print($Timer.wait_time)
+	
 	if $Timer.wait_time <= 0.1:
 		$Timer.wait_time = 0.6
+		$Timer/SpeedTime/AnimatedSprite.animation = "tempo_1"
 		print($Timer.wait_time)
 	
 	

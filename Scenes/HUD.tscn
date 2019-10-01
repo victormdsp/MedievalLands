@@ -84,12 +84,4 @@ custom_fonts/font = SubResource( 4 )
 text = "Start"
 align = 1
 valign = 1
-
-[node name="populacao" type="Label" parent="."]
-margin_left = 833.474
-margin_top = 24.448
-margin_right = 972.474
-margin_bottom = 72.448
-align = 1
-valign = 1
 [connection signal="pressed" from="StartButton" to="." method="new_game"]

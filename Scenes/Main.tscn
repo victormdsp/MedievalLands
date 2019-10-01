@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Populacao.tscn" type="PackedScene" id=2]
@@ -6,6 +6,27 @@
 [ext_resource path="res://Scenes/Recursos.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Informações.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/tempo_2.svg" type="Texture" id=7]
+[ext_resource path="res://Sprites/tempo_3.svg" type="Texture" id=8]
+[ext_resource path="res://Sprites/tempo_1.svg" type="Texture" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "tempo_2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "tempo_3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "tempo_1",
+"speed": 5.0
+} ]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
@@ -15,7 +36,7 @@ position = Vector2( -126.667, 238.166 )
 scale = Vector2( 0.5, 0.62 )
 
 [node name="Upgrades" parent="." instance=ExtResource( 3 )]
-position = Vector2( 121.765, 224.17 )
+position = Vector2( 117.765, 227.17 )
 scale = Vector2( 0.5, 0.62 )
 
 [node name="Recursos" parent="." instance=ExtResource( 4 )]
@@ -23,7 +44,7 @@ position = Vector2( 243.767, 368.567 )
 scale = Vector2( 0.5, 0.62 )
 
 [node name="Informacoes" parent="." instance=ExtResource( 5 )]
-position = Vector2( -1.16635, 1.16635 )
+position = Vector2( -2.16635, 2.86468 )
 
 [node name="HUD" parent="." instance=ExtResource( 6 )]
 
@@ -31,11 +52,16 @@ position = Vector2( -1.16635, 1.16635 )
 wait_time = 0.6
 
 [node name="SpeedTime" type="Button" parent="Timer"]
-margin_left = 12.0
-margin_top = 48.0
-margin_right = 66.0
-margin_bottom = 68.0
-text = "Speed"
+margin_left = 11.0
+margin_top = 49.0
+margin_right = 67.0
+margin_bottom = 90.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Timer/SpeedTime"]
+position = Vector2( 27.9685, 8.80254 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 1 )
+animation = "tempo_1"
 
 [node name="Button" type="Button" parent="."]
 margin_left = 892.0
