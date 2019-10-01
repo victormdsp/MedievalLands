@@ -26,9 +26,9 @@ func new_game():
 	$Recursos/Button/AnimatedSprite.show()
 	$Recursos/Button/Label.show()
 	$Recursos/Button.show()
-	$Upgrades/Button/AnimatedSprite.show()
-	$Upgrades/Button/Label.show()
-	$Upgrades/Button.show()
+	$Upgrades/upgradeButton/AnimatedSprite.show()
+	$Upgrades/upgradeButton/Label.show()
+	$Upgrades/upgradeButton.show()
 	$HUD/Time.show()
 	$HUD/Label.show()
 	$HUD/Label.text = "0" #Início do ano como 0 

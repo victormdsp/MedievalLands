@@ -15,10 +15,10 @@ signal castelo #Sinal para receber a quantidade de recursos que o jogador possui
 #Função ready
 func _ready():
 	set_process_input(true) 
-	$Button/AnimatedSprite.hide() #Esconder da sprite do botão 
-	$Button/Label.hide() #Esconder do texto do botão 
+	$upgradeButton/AnimatedSprite.hide() #Esconder da sprite do botão 
+	$upgradeButton/Label.hide() #Esconder do texto do botão 
 	$AnimatedSprite.hide() #Esconder a sprite da aba 
-	$Button.hide() #Esconder o botão
+	$upgradeButton.hide() #Esconder o botão
 	
 func _input(event):
 	if Input.is_action_just_pressed("ui_2"):#Se user aperta tecla W

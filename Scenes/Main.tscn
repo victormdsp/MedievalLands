@@ -44,9 +44,7 @@ position = Vector2( 243.767, 368.567 )
 scale = Vector2( 0.5, 0.62 )
 
 [node name="Informacoes" parent="." instance=ExtResource( 5 )]
-
 position = Vector2( -2.16635, 2.86468 )
-
 
 [node name="HUD" parent="." instance=ExtResource( 6 )]
 
