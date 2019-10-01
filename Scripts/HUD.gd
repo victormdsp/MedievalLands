@@ -9,7 +9,6 @@ signal map #Sinal para quando o mapa for pressionado , ser o principal HUD a apa
 func _ready():
 	#Após o início do programa , esconder todos os botões da tela
 	$Time.hide()
-	$populacao.hide()
 	$MapaSprite.hide()
 	$Informacoes.hide()
 	

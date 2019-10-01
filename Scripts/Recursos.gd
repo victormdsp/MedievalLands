@@ -13,7 +13,7 @@ func _ready():
 	$Button.hide() #Esconder o botão
 	
 func _input(event):
-	if Input.is_key_pressed(KEY_E):#Se user aperta tecla E
+	if Input.is_action_just_pressed("ui_3"):#Se user aperta tecla E
 		_on_Button_pressed()
 
 #Sinal de botão 
