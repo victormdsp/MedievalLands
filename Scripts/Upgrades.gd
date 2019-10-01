@@ -15,6 +15,7 @@ signal castelo #Sinal para receber a quantidade de recursos que o jogador possui
 #Função ready
 func _ready():
 	set_process_input(true) 
+	$nivel.hide()
 	$upgradeButton/AnimatedSprite.hide() #Esconder da sprite do botão 
 	$upgradeButton/Label.hide() #Esconder do texto do botão 
 	$AnimatedSprite.hide() #Esconder a sprite da aba 
@@ -28,6 +29,7 @@ func _input(event):
 #Sinal de botão 
 func _on_Button_pressed():
 	$AnimatedSprite.show() #Mostrar a aba quando pressionado 
+	$nivel.show()
 	TweenNode.interpolate_method(self, "movimento", 630, 310, 1.0, Tween.TRANS_BACK, Tween.EASE_OUT)
 	TweenNode.start()
 	cont += 1
@@ -37,7 +39,8 @@ func _on_Button_pressed():
 		cont = 0 #Reset do contador
 		
 func movimento(value):
-	$AnimatedSprite.position.y = value	
+	$AnimatedSprite.position.y = value
+	$nivel.rect_position.y = value	
 
 #Função para saber se houve upgrade no castelo
 func castelo(madeira , metal , populacaoTotal):
