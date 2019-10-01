@@ -92,7 +92,7 @@ func evento(rand,popR):
 
 #Função nascer ( baseada no tempo , quantas pessoas nascem no jogo)		
 func nascer():
-	var popu = randi()%$Populacao.quantidade / 2 #Variável para randomizar uma quantidade de pessoas que nascem 
+	var popu = randi()%$Populacao.quantidade+1/ 2 #Variável para randomizar uma quantidade de pessoas que nascem 
 	return popu #Retorna a variável popu
 	
 #Função População
@@ -134,11 +134,17 @@ func _on_Button_pressed():
 
 
 func _on_SpeedTime_pressed():
-	if $Timer.wait_time <= 1.0:
+	if $Timer.wait_time <= 0.7:
 		$Timer.wait_time -= 0.2
+		if $Timer.wait_time <= 0.4 and $Timer.wait_time >= 0.1:
+			$Timer/SpeedTime/AnimatedSprite.animation = "tempo_3"
+		else:
+			$Timer/SpeedTime/AnimatedSprite.animation = "tempo_2"
 		print($Timer.wait_time)
+	
 	if $Timer.wait_time <= 0.1:
 		$Timer.wait_time = 0.6
+		$Timer/SpeedTime/AnimatedSprite.animation = "tempo_1"
 		print($Timer.wait_time)
 	
 	
