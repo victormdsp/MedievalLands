@@ -16,7 +16,7 @@ animations = [ {
 } ]
 
 [sub_resource type="DynamicFont" id=2]
-size = 40
+size = 45
 font_data = ExtResource( 4 )
 
 [sub_resource type="SpriteFrames" id=3]

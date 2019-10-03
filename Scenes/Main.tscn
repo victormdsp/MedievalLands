@@ -49,7 +49,6 @@ position = Vector2( -2.16635, 2.86468 )
 [node name="HUD" parent="." instance=ExtResource( 6 )]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.6
 
 [node name="SpeedTime" type="Button" parent="Timer"]
 margin_left = 11.0
@@ -69,6 +68,9 @@ margin_top = 489.0
 margin_right = 1017.0
 margin_bottom = 534.0
 text = "info"
+[connection signal="comida" from="Recursos" to="." method="_on_Recursos_comida"]
+[connection signal="madeira" from="Recursos" to="." method="_on_Recursos_madeira"]
+[connection signal="metal" from="Recursos" to="." method="_on_Recursos_metal"]
 [connection signal="hit" from="HUD" to="." method="_on_HUD_hit"]
 [connection signal="map" from="HUD" to="." method="_on_HUD_map"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

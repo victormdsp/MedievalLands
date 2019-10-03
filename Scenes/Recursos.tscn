@@ -1,21 +1,37 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Recursos.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/menu_click.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/menu.png" type="Texture" id=3]
-[ext_resource path="res://Fonts/Breathe Fire.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://Fonts/Breathe Fire.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Sprites/menu_click.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/menu.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 2 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "aba",
 "speed": 5.0
 } ]
 
+[sub_resource type="DynamicFont" id=7]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 40
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 50
+font_data = ExtResource( 2 )
+
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "botao",
 "speed": 5.0
@@ -23,41 +39,64 @@ animations = [ {
 
 [sub_resource type="DynamicFont" id=3]
 size = 50
-font_data = ExtResource( 4 )
+font_data = ExtResource( 2 )
 
 [node name="Recursos" type="Node2D"]
-position = Vector2( 1339.36, -50.4514 )
+position = Vector2( -64.1155, 77.207 )
 scale = Vector2( 0.59, 0.73 )
 script = ExtResource( 1 )
 
 [node name="mensagem" type="Label" parent="."]
-margin_left = -1174.8
-margin_top = 171.043
-margin_right = -828.797
-margin_bottom = 370.043
+margin_left = 519.022
+margin_top = -78.9643
+margin_right = 1009.02
+margin_bottom = 30.0357
+custom_fonts/font = SubResource( 4 )
+text = " nao ha 
+trabalhadores suficiente "
+align = 1
+valign = 1
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 785.878, 401.924 )
 scale = Vector2( 1.27368, 1.40607 )
 frames = SubResource( 1 )
 animation = "aba"
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Tween" type="Tween" parent="."]
 
 [node name="PegarR" type="Button" parent="."]
-margin_left = -2203.45
-margin_top = 698.994
-margin_right = -1913.45
-margin_bottom = 819.994
+margin_left = 650.0
+margin_top = 500.0
+margin_right = 880.0
+margin_bottom = 563.0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+text = "Madeira"
+flat = true
 
 [node name="PegarM" type="Button" parent="."]
-margin_left = -1706.55
-margin_top = 682.758
-margin_right = -1388.55
-margin_bottom = 814.758
+margin_left = 650.0
+margin_top = 300.0
+margin_right = 880.0
+margin_bottom = 363.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+text = "Metal"
+flat = true
+
+[node name="PegarC" type="Button" parent="."]
+margin_left = 650.0
+margin_top = 400.0
+margin_right = 880.0
+margin_bottom = 463.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+text = "Comida"
+flat = true
 
 [node name="Button" type="Button" parent="."]
 margin_left = 617.0
@@ -81,6 +120,7 @@ text = "Recursos
 "
 align = 1
 valign = 1
-[connection signal="pressed" from="PegarR" to="." method="pegarmadeira"]
-[connection signal="pressed" from="PegarM" to="." method="pegarmetal"]
+[connection signal="pressed" from="PegarR" to="." method="_on_PegarR_pressed"]
+[connection signal="pressed" from="PegarM" to="." method="_on_PegarM_pressed"]
+[connection signal="pressed" from="PegarC" to="." method="_on_PegarC_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

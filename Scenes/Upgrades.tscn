@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Scripts/Upgrades.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/menu_click.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/menu.png" type="Texture" id=3]
-[ext_resource path="res://Fonts/Breathe Fire.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://Fonts/Breathe Fire.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://Sprites/menu.png" type="Texture" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -13,9 +13,14 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="DynamicFont" id=4]
+size = 50
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "botao",
 "speed": 5.0
@@ -23,11 +28,7 @@ animations = [ {
 
 [sub_resource type="DynamicFont" id=3]
 size = 63
-font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 35
-font_data = ExtResource( 4 )
+font_data = ExtResource( 3 )
 
 [node name="Upgrades" type="Node2D"]
 position = Vector2( -120.889, 126.466 )
@@ -41,6 +42,17 @@ frames = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="nivel" type="Button" parent="."]
+margin_left = 411.36
+margin_top = 258.0
+margin_right = 752.36
+margin_bottom = 317.0
+rect_scale = Vector2( 0.7, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Upgrade Castelo"
+flat = true
 
 [node name="upgradeButton" type="Button" parent="."]
 margin_left = 385.0
@@ -71,14 +83,5 @@ align = 1
 valign = 3
 
 [node name="Tween" type="Tween" parent="."]
-
-[node name="nivel" type="Button" parent="."]
-margin_left = 407.0
-margin_top = 258.0
-margin_right = 686.0
-margin_bottom = 307.0
-rect_scale = Vector2( 0.7, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "Upgrade Castelo"
-[connection signal="pressed" from="upgradeButton" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="nivel" to="." method="_on_nivel_pressed"]
+[connection signal="pressed" from="upgradeButton" to="." method="_on_Button_pressed"]
