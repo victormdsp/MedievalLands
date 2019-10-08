@@ -49,7 +49,6 @@ position = Vector2( -2.16635, 2.86468 )
 [node name="HUD" parent="." instance=ExtResource( 6 )]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.6
 
 [node name="SpeedTime" type="Button" parent="Timer"]
 margin_left = 11.0

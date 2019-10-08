@@ -30,6 +30,7 @@ animations = [ {
 size = 63
 font_data = ExtResource( 3 )
 
+
 [node name="Upgrades" type="Node2D"]
 position = Vector2( -120.889, 126.466 )
 scale = Vector2( 0.59, 0.73 )
@@ -83,6 +84,16 @@ text = "Upgrades
 align = 1
 valign = 3
 
+[node name="nivel" type="Button" parent="."]
+margin_left = 411.36
+margin_top = 258.0
+margin_right = 752.36
+margin_bottom = 317.0
+rect_scale = Vector2( 0.7, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Upgrade Castelo"
+flat = true
+
 [node name="Tween" type="Tween" parent="."]
-[connection signal="pressed" from="nivel" to="." method="_on_nivel_pressed"]
 [connection signal="pressed" from="upgradeButton" to="." method="_on_Button_pressed"]

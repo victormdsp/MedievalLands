@@ -21,6 +21,7 @@ animations = [ {
 size = 45
 font_data = ExtResource( 7 )
 
+
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 8 ) ],
