@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Informacoes.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/menu_click.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Menu/New_menu_info.svg" type="Texture" id=2]
 [ext_resource path="res://Fonts/Breathe Fire.otf" type="DynamicFontData" id=3]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -20,8 +20,8 @@ font_data = ExtResource( 3 )
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 515.598, 55.9271 )
-scale = Vector2( 1.29497, 0.668598 )
+position = Vector2( 488.727, 58.075 )
+scale = Vector2( 0.623629, 0.680919 )
 frames = SubResource( 1 )
 animation = "New Anim"
 
@@ -31,6 +31,7 @@ margin_top = 72.2425
 margin_right = 513.685
 margin_bottom = 115.243
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Aqui"
 valign = 1
 
@@ -40,6 +41,7 @@ margin_top = 118.197
 margin_right = 513.685
 margin_bottom = 161.197
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Aqui"
 valign = 1
 
@@ -49,5 +51,6 @@ margin_top = 32.5325
 margin_right = 613.685
 margin_bottom = 75.5325
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Ainda não se passou tanto tempo"
 valign = 1

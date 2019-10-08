@@ -1,10 +1,9 @@
 extends Node
 
 #Variáveis auxiliares
-var aux = 0 #Variável auxiliar 
-var cont = 11 #Variável contador 
+var aux = 0 #Variável auxiliar  
 var botao = 0 #Variável informações 
-var dinheiro = 0 #Guarda a quantidade de dinheiro atual 
+var dinheiroaux = 0
 
 #Variáveis dos Eventos
 var event = 4 #Variável de escolha de eventos
@@ -13,7 +12,9 @@ var armazemPop = 0 #Variável que armazena o valor da quantidade de gente que na
 var armazemEvent = 0 #Variável que escolhe entre um dos eventos 
 
 #Variáveis do tempo
-var auxtempo = 0
+var cont = 11 #Variável contador tempo
+var contimerEvento = 31 #Variável contador tempo para cálculo de eventos
+var auxtempo = 0 
 var timer = 1 #Timer para o funcionamento dos anos no jogo 
 
 #Variáveis da população 
@@ -23,6 +24,7 @@ func _ready():
 	$HUD/Label.hide() #Esconde o texto da mensagem 
 	$Button.hide() #Esconde o botão da informação
 	$Timer/SpeedTime.hide() #Esconde o botão de acelerar o jogo 
+	dinheiroaux = $Populacao.imposto()
 
 #Função new_games
 func new_game():
@@ -49,13 +51,17 @@ func _on_Timer_timeout():
 	$HUD/Label.text = str(timer) #Atualização da label do tempo do deccorer do jogo 
 	timer += 1 #Atualização do tempo 
 	if timer == cont: #Comparativo para saber se ja passaram 10 anos
-		dinheiro = $Populacao.imposto()
+		dinheiroaux = $Populacao.imposto() + dinheiroaux
 		armazemPop = $Populacao.nascer() #Chamda da função nascer e armazena na variável aux2
-		armazemEvent = evento(_randomize_my_variable(event),armazemPop) #Chamda da função evento juntamente com a função de randomizar uma variável
-		auxpop = populacao(armazemPop,armazemEvent) #Chamada da função para atualizar população
+		auxpop = populacao(armazemPop,0) #Chamada da função para atualizar população
 		$Populacao/PopulacaoLabel.text =  str("Population: ",$Populacao.quantidade) 
 		cont += 10 #Contador aumenta para mantes de 10 em 10 anos
-			
+		
+	if timer == contimerEvento:
+		armazemEvent = evento(_randomize_my_variable(event),armazemPop) #Chamda da função evento juntamente com a função de randomizar uma variável
+		auxpop = populacao(armazemPop,armazemEvent) #Chamada da função para atualizar população
+		contimerEvento += 30
+		
 #Sinal para o start do jogo 
 func _on_HUD_hit():
 	new_game() #Chamada do new_game
@@ -72,22 +78,22 @@ func evento(rand,popR):
 	
 	#Dependendo do número de entrada será escolhido um dos eventos para a dinânimca e lógica do jogo 
 	if rand == 1: 
-		resultado += 7 + popR * 20/100
+		resultado += 7 + $Populacao.quantidadeA * 20/100
 		$Informacoes/Label5.text = str("Houve uma boa colheita nascendo ", resultado, " a mais")
 		return resultado
 		
 	elif rand == 2:
-		resultado -= 10 + popR * 75/100
+		resultado -= 10 + $Populacao.quantidadeE * 75/100
 		$Informacoes/Label5.text = str("Houve uma guerra matando: ", resultado)
 		return resultado
 		
 	elif rand == 3:
-		resultado -= 5 + popR * 75/100
+		resultado -= 5 + $Populacao.quantidadeT * 75/100
 		$Informacoes/Label5.text = str("Houve uma doença matando: ", resultado)
 		return resultado
 		
 	elif rand == 0:
-		resultado -= 7 + popR * 75/100
+		resultado -= 7 + $Populacao.quantidadeA * 75/100
 		$Informacoes/Label5.text = str("Houve um inverno rigoroso matando: ", resultado)
 		return resultado
 
@@ -148,16 +154,19 @@ func _on_SpeedTime_pressed():
 #Funções para a chamada da busca de recursos
 #Função que chama a função do cálculo para pegar comida  
 func _on_Recursos_comida():
-	$Recursos.pegaralimento($Populacao.quantidadeT,dinheiro)
+	var dinheirofinal = $Recursos.pegaralimento($Populacao.quantidadeT,dinheiroaux)
+	dinheiroaux = dinheirofinal
 	
 #Função que chama a função do cálculo para pegar madeira 
 func _on_Recursos_madeira():
-	$Recursos.pegarmadeira($Populacao.quantidadeT,dinheiro)
+	var dinheirofinal = $Recursos.pegaralimento($Populacao.quantidadeT,dinheiroaux)
+	dinheiroaux = dinheirofinal
 	
 #Função que chama a função do cálculo para pegar madeira
 func _on_Recursos_metal():
-	$Recursos.pegarmetal($Populacao.quantidadeT,dinheiro)
-
+	var dinheirofinal = $Recursos.pegaralimento($Populacao.quantidadeT,dinheiroaux)
+	dinheiroaux = dinheirofinal
+	
 #Funções de upgrade
 func _on_Upgrades_castelo():
 	pessoasvivas = $Upgrades.castelo($Recursos.madeira ,$Recursos.madeiraN ,$Recursos.metal ,$Recursos.metalN ,$Recursos.dinheiro, $Recursos.dinheiroN)   

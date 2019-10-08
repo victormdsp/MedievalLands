@@ -1,27 +1,35 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/HUD.gd" type="Script" id=1]
-[ext_resource path="res://Fonts/Breathe Fire.otf" type="DynamicFontData" id=2]
-[ext_resource path="res://Sprites/menu.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Menu/New_menu.svg" type="Texture" id=2]
+[ext_resource path="res://Fonts/Breathe Fire.otf" type="DynamicFontData" id=3]
 
-[sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 2 )
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="DynamicFont" id=2]
-size = 64
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="DynamicFont" id=3]
+size = 64
+font_data = ExtResource( 3 )
+
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "botao",
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 size = 60
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -41,19 +49,16 @@ margin_right = 593.0
 margin_bottom = 135.0
 color = Color( 0.0666667, 0.560784, 0.596078, 1 )
 
-[node name="Time" type="ColorRect" parent="."]
-margin_left = 11.0
-margin_top = 16.0
-margin_right = 67.0
-margin_bottom = 43.0
-color = Color( 0.0666667, 0.596078, 0.596078, 1 )
+[node name="Time" type="AnimatedSprite" parent="."]
+position = Vector2( 38.6397, 36.6342 )
+scale = Vector2( 0.0875772, 0.19827 )
+frames = SubResource( 1 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = -3.45547
 margin_top = 1.08905
 margin_right = 78.5445
 margin_bottom = 61.0891
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "
 	Tempo
 "
@@ -65,14 +70,14 @@ margin_left = 384.0
 margin_top = 303.961
 margin_right = 661.0
 margin_bottom = 382.961
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "START"
 flat = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="StartButton"]
 position = Vector2( 133.21, 57.0897 )
 scale = Vector2( 0.415429, 0.598747 )
-frames = SubResource( 3 )
+frames = SubResource( 4 )
 animation = "botao"
 
 [node name="Texto_botao" type="Label" parent="StartButton"]
@@ -80,7 +85,7 @@ margin_left = 3.43213
 margin_top = 6.0
 margin_right = 264.432
 margin_bottom = 74.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Start"
 align = 1
 valign = 1

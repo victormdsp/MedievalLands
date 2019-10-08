@@ -15,7 +15,6 @@ var alimentoN = 100
 #Variáveis para os recursos iniciais 
 var madeira = 50 #Quantidade de madeira
 var metal = 50 #Quantidade de metal
-var dinheiro = 100 #Quantidade de dinheiro
 var alimento = 100 #Quantidade de alimenro
 signal madeira #Sinal para saber se o jogador quer pegar mais madeira
 signal metal #Sinal para saber se o jogador quer pegar mais metal
@@ -53,74 +52,62 @@ func _on_Button_pressed():
 		
 func movimento(value):
 	$AnimatedSprite.position.y = value
-	$PegarC.rect_position.y = value - 50
-	$PegarM.rect_position.y = value + 25
-	$PegarR.rect_position.y = value + 100
+	$PegarC.rect_position.y = value - 25
+	$PegarM.rect_position.y = value + 50
+	$PegarR.rect_position.y = value + 125
+	$mensagem.rect_position.y = value + 75
 	
-func pegarmadeira(trabalhadores,dinheiroN):
-	if trabalhadores <= 0:
+func pegarmadeira(trabalhadores,dinheiroAtual):
+	if trabalhadores <= 0 and dinheiroAtual <= dinheiroN:
 		$mensagem.show()
-		$mensagem.text = "Você não possui trabalhadores suficiente"
+		$mensagem.text = "Você não possui recursos suficiente"
 		yield(get_tree().create_timer(1), "timeout")
 		$mensagem.hide()
-		
-	elif dinheiro <= dinheiroN:
-		$mensagem.show()
-		$mensagem.text = "Você não possui dinheiro suficiente"
-		yield(get_tree().create_timer(1), "timeout")
-		$mensagem.hide()
+		return dinheiroAtual
 			
 	else:	
 		madeira = trabalhadores / 2
-		dinheiro = dinheiro - dinheiroN
+		dinheiroAtual = dinheiroAtual - dinheiroN
 		$mensagem.show()
 		$mensagem.text = str("Você pegou " ,madeira," madeiras")
 		yield(get_tree().create_timer(1), "timeout")
 		$mensagem.hide()
+		return dinheiroAtual
 
-func pegarmetal(trabalhadores,dinheiroN):
-	if trabalhadores <= 0:
+func pegarmetal(trabalhadores, dinheiroAtual):
+	if trabalhadores <= 0 and dinheiroAtual <= dinheiroN:
 		$mensagem.show()
-		$mensagem.text = "Você não possui trabalhadores suficiente"
+		$mensagem.text = "Você não possui recursos suficiente"
 		yield(get_tree().create_timer(1), "timeout")
 		$mensagem.hide()
-		
-	elif dinheiro <= dinheiroN:
-		$mensagem.show()
-		$mensagem.text = "Você não possui dinheiro suficiente"
-		yield(get_tree().create_timer(1), "timeout")
-		$mensagem.hide()
+		return dinheiroAtual
 			
 	else:	
 		metal = trabalhadores / 2
-		dinheiro = dinheiro - dinheiroN
+		dinheiroAtual = dinheiroAtual - dinheiroN
 		$mensagem.show()
 		$mensagem.text = str("Você pegou " ,metal," metais")
 		yield(get_tree().create_timer(1), "timeout")
 		$mensagem.hide()
+		return dinheiroAtual
 		
-func pegaralimento(trabalhadores,dinheiroN):
-	print("entrou")
-	if trabalhadores <= 0:
+func pegaralimento(trabalhadores, dinheiroAtual):
+	print(dinheiroAtual)
+	if trabalhadores <= 0 and dinheiroAtual <= dinheiroN:
 		$mensagem.show()
-		$mensagem.text = "Você não possui trabalhadores suficiente"
+		$mensagem.text = "Você não possui recursos suficiente"
 		yield(get_tree().create_timer(1), "timeout")
 		$mensagem.hide()
-		
-	elif dinheiro <= dinheiroN:
-		$mensagem.show()
-		$mensagem.text = "Você não possui dinheiro suficiente"
-		yield(get_tree().create_timer(1), "timeout")
-		$mensagem.hide()
+		return dinheiroAtual
 			
 	else:	
 		alimento = trabalhadores / 2
-		dinheiro = dinheiro - dinheiroN
 		$mensagem.show()
 		$mensagem.text = str("Você pegou " ,alimento," comidas")
 		yield(get_tree().create_timer(1), "timeout")
 		$mensagem.hide()
-
+		return dinheiroAtual - dinheiroN
+		
 func _on_PegarR_pressed():
 	emit_signal("madeira")
 	

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Castle_lv_1.svg-b5047d5f1243b13d50b59ec0909e0767.stex"
+path="res://.import/Army_lv_1.svg-d24dcebb242c38eb4f7a0a0b11b48d60.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Castle_lv_1.svg"
-dest_files=[ "res://.import/Castle_lv_1.svg-b5047d5f1243b13d50b59ec0909e0767.stex" ]
+source_file="res://Sprites/Army/Army_lv_1.svg"
+dest_files=[ "res://.import/Army_lv_1.svg-d24dcebb242c38eb4f7a0a0b11b48d60.stex" ]
 
 [params]
 

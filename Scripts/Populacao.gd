@@ -20,7 +20,10 @@ func _ready():
 	$Button/Label.hide() #Esconder do texto do botão 
 	$AnimatedSprite.hide() #Esconder a sprite da aba 
 	$Button.hide() #Esconder o botão
-	quantidade = 20 #Quantidade inicial da população 
+	quantidadeA = 10 #Quantidade de agricultores inicial
+	quantidadeE = 10 #Quantidade de soldados inicial
+	quantidadeT = 10 #Quantidade de trabalhadores inicial
+	quantidade = quantidadeA + quantidadeE + quantidadeT #Quantidade inicial da população
 	
 func _input(event):
 	if Input.is_action_just_pressed("ui_1"):#Se user aperta tecla Q
@@ -39,7 +42,7 @@ func _on_Button_pressed():
 		cont = 0 #Reset do contador
 		
 func movimento(value):
-	$AnimatedSprite.position.y = value
+	$AnimatedSprite.position.y = value + 12
 	$PopulacaoLabel.rect_position.y = value
 	pass
 
