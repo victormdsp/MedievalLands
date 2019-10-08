@@ -1,21 +1,37 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Recursos.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/menu_click.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/menu.png" type="Texture" id=3]
-[ext_resource path="res://Fonts/Breathe Fire.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://Fonts/Breathe Fire.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Sprites/Menu/New_big_menu.svg" type="Texture" id=3]
+[ext_resource path="res://Sprites/Menu/New_menu.svg" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=7]
+size = 40
+font_data = ExtResource( 2 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "aba",
 "speed": 5.0
 } ]
 
+[sub_resource type="DynamicFont" id=4]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 50
+font_data = ExtResource( 2 )
+
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "botao",
 "speed": 5.0
@@ -23,7 +39,7 @@ animations = [ {
 
 [sub_resource type="DynamicFont" id=3]
 size = 50
-font_data = ExtResource( 4 )
+font_data = ExtResource( 2 )
 
 [node name="Recursos" type="Node2D"]
 position = Vector2( 1339.36, -50.4514 )
@@ -31,14 +47,17 @@ scale = Vector2( 0.59, 0.73 )
 script = ExtResource( 1 )
 
 [node name="mensagem" type="Label" parent="."]
-margin_left = -1174.8
-margin_top = 171.043
-margin_right = -828.797
-margin_bottom = 370.043
+margin_left = 487.666
+margin_top = 221.789
+margin_right = 1040.67
+margin_bottom = 420.789
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Voce nao possui recursos suficiente"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 785.878, 401.924 )
-scale = Vector2( 1.27368, 1.40607 )
+position = Vector2( 756.275, 340.75 )
+scale = Vector2( 0.53, 0.72 )
 frames = SubResource( 1 )
 animation = "aba"
 __meta__ = {
@@ -47,17 +66,39 @@ __meta__ = {
 
 [node name="Tween" type="Tween" parent="."]
 
+[node name="PegarC" type="Button" parent="."]
+margin_left = 628.436
+margin_top = 470.913
+margin_right = 893.436
+margin_bottom = 532.913
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+text = "Food"
+flat = true
+
 [node name="PegarR" type="Button" parent="."]
-margin_left = -2203.45
-margin_top = 698.994
-margin_right = -1913.45
-margin_bottom = 819.994
+margin_left = 625.595
+margin_top = 333.046
+margin_right = 890.595
+margin_bottom = 395.046
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+text = "Wood"
+flat = true
 
 [node name="PegarM" type="Button" parent="."]
-margin_left = -1706.55
-margin_top = 682.758
-margin_right = -1388.55
-margin_bottom = 814.758
+margin_left = 625.536
+margin_top = 400.287
+margin_right = 890.536
+margin_bottom = 462.287
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+text = "Metal"
+flat = true
 
 [node name="Button" type="Button" parent="."]
 margin_left = 617.0
@@ -81,6 +122,7 @@ text = "Recursos
 "
 align = 1
 valign = 1
-[connection signal="pressed" from="PegarR" to="." method="pegarmadeira"]
-[connection signal="pressed" from="PegarM" to="." method="pegarmetal"]
+[connection signal="pressed" from="PegarC" to="." method="_on_PegarC_pressed"]
+[connection signal="pressed" from="PegarR" to="." method="_on_PegarR_pressed"]
+[connection signal="pressed" from="PegarM" to="." method="_on_PegarM_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

@@ -6,9 +6,9 @@
 [ext_resource path="res://Scenes/Recursos.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Informações.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Sprites/tempo_1.svg" type="Texture" id=7]
-[ext_resource path="res://Sprites/tempo_3.svg" type="Texture" id=8]
-[ext_resource path="res://Sprites/tempo_2.svg" type="Texture" id=9]
+[ext_resource path="res://Sprites/Menu/tempo_1.svg" type="Texture" id=7]
+[ext_resource path="res://Sprites/Menu/tempo_3.svg" type="Texture" id=8]
+[ext_resource path="res://Sprites/Menu/tempo_2.svg" type="Texture" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -36,11 +36,11 @@ position = Vector2( -126.667, 238.166 )
 scale = Vector2( 0.5, 0.62 )
 
 [node name="Upgrades" parent="." instance=ExtResource( 3 )]
-position = Vector2( 117.765, 227.17 )
+position = Vector2( 112.458, 227.17 )
 scale = Vector2( 0.5, 0.62 )
 
 [node name="Recursos" parent="." instance=ExtResource( 4 )]
-position = Vector2( 243.767, 368.567 )
+position = Vector2( 242.952, 368.567 )
 scale = Vector2( 0.5, 0.62 )
 
 [node name="Informacoes" parent="." instance=ExtResource( 5 )]
@@ -68,6 +68,9 @@ margin_top = 489.0
 margin_right = 1017.0
 margin_bottom = 534.0
 text = "info"
+[connection signal="comida" from="Recursos" to="." method="_on_Recursos_comida"]
+[connection signal="madeira" from="Recursos" to="." method="_on_Recursos_madeira"]
+[connection signal="metal" from="Recursos" to="." method="_on_Recursos_metal"]
 [connection signal="hit" from="HUD" to="." method="_on_HUD_hit"]
 [connection signal="map" from="HUD" to="." method="_on_HUD_map"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tempo_2.svg-f829150a82895c17905e619d5329b8a6.stex"
+path="res://.import/menu_click.png-b7525c11c4d1f5ec7cef7d0aa624be11.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/tempo_2.svg"
-dest_files=[ "res://.import/tempo_2.svg-f829150a82895c17905e619d5329b8a6.stex" ]
+source_file="res://Sprites/Menu/menu_click.png"
+dest_files=[ "res://.import/menu_click.png-b7525c11c4d1f5ec7cef7d0aa624be11.stex" ]
 
 [params]
 
