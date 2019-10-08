@@ -13,12 +13,12 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=2]
 size = 50
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
@@ -26,7 +26,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 63
 font_data = ExtResource( 3 )
 
@@ -49,7 +49,7 @@ margin_top = 258.0
 margin_right = 752.36
 margin_bottom = 317.0
 rect_scale = Vector2( 0.7, 1 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Upgrade Castelo"
 flat = true
@@ -64,7 +64,7 @@ flat = true
 [node name="AnimatedSprite" type="AnimatedSprite" parent="upgradeButton"]
 position = Vector2( 132.246, 53.4472 )
 scale = Vector2( 0.524, 0.688 )
-frames = SubResource( 2 )
+frames = SubResource( 3 )
 animation = "botao"
 
 [node name="Label" type="Label" parent="upgradeButton"]
@@ -76,7 +76,7 @@ margin_left = -168.136
 margin_top = -65.4794
 margin_right = 161.864
 margin_bottom = 69.5206
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Upgrades
 "
 align = 1

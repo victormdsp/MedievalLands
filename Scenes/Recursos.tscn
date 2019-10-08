@@ -5,11 +5,11 @@
 [ext_resource path="res://Sprites/menu_click.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/menu.png" type="Texture" id=4]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=1]
 size = 30
 font_data = ExtResource( 2 )
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
@@ -17,19 +17,19 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=3]
 size = 50
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 40
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=5]
 size = 50
 font_data = ExtResource( 2 )
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
@@ -37,7 +37,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=7]
 size = 50
 font_data = ExtResource( 2 )
 
@@ -51,7 +51,7 @@ margin_left = 519.022
 margin_top = -78.9643
 margin_right = 1009.02
 margin_bottom = 30.0357
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 1 )
 text = " nao ha 
 trabalhadores suficiente "
 align = 1
@@ -60,7 +60,7 @@ valign = 1
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 785.878, 401.924 )
 scale = Vector2( 1.27368, 1.40607 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "aba"
 
 [node name="Tween" type="Tween" parent="."]
@@ -70,7 +70,7 @@ margin_left = 650.0
 margin_top = 500.0
 margin_right = 880.0
 margin_bottom = 563.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 text = "Madeira"
@@ -81,7 +81,7 @@ margin_left = 650.0
 margin_top = 300.0
 margin_right = 880.0
 margin_bottom = 363.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 text = "Metal"
@@ -92,7 +92,7 @@ margin_left = 650.0
 margin_top = 400.0
 margin_right = 880.0
 margin_bottom = 463.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 text = "Comida"
@@ -107,7 +107,7 @@ margin_bottom = 353.0
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Button"]
 position = Vector2( 137.629, 50.1531 )
 scale = Vector2( 0.524, 0.688 )
-frames = SubResource( 2 )
+frames = SubResource( 6 )
 animation = "botao"
 
 [node name="Label" type="Label" parent="Button"]
@@ -115,7 +115,7 @@ margin_left = 14.7279
 margin_top = 3.27203
 margin_right = 293.728
 margin_bottom = 112.272
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 7 )
 text = "Recursos
 "
 align = 1

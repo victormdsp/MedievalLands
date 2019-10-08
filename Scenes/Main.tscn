@@ -68,6 +68,7 @@ margin_top = 489.0
 margin_right = 1017.0
 margin_bottom = 534.0
 text = "info"
+[connection signal="castelo" from="Upgrades" to="." method="_on_Upgrades_castelo"]
 [connection signal="comida" from="Recursos" to="." method="_on_Recursos_comida"]
 [connection signal="madeira" from="Recursos" to="." method="_on_Recursos_madeira"]
 [connection signal="metal" from="Recursos" to="." method="_on_Recursos_metal"]

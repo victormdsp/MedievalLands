@@ -41,12 +41,18 @@ func movimento(value):
 	$nivel.rect_position.y = value	
 
 #Função para saber se houve upgrade no castelo
-func castelo(madeiraAtual, madeiraN ,metalAtual, metalN , populacaoTotal):
-	if madeiraAtual <= madeiraN and metalAtual <= metalN: #Caso os recursos q o jogador possui sejam maiores ou iguais o requisito 
+func castelo(madeiraAtual, madeiraN ,metalAtual ,metalN ,dinheiroAtual, dinheiroN):
+	if madeiraAtual >= madeiraN and metalAtual >= metalN and dinheiroAtual >= dinheiroN: #Caso os recursos q o jogador possui sejam maiores ou iguais o requisito 
 		nivelC += 1 #Aumenta o nível do castelo em 1
 		quantidadePopulacao += quantidadePopulacao #Aumenta a população que fica viva  
+		madeiraN = madeiraN + (25/100 * madeiraN)
+		metalN = metalN + (25/100 * metalN)
+		dinheiroN = dinheiroN + (25/100 * dinheiroN)
 		return quantidadePopulacao #Retorna a quantidade de população atual após o upgrade
-
+	else:
+		print("Você não possui os recursos necessários")
+		return 
+		
 #Função para saber se o botão de upgrade foi pressionado
 func _on_nivel_pressed():
 	emit_signal("castelo") #Emite um sinal para receber informações de outros nós

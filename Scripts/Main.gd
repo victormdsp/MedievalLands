@@ -16,6 +16,9 @@ var armazemEvent = 0 #Variável que escolhe entre um dos eventos
 var auxtempo = 0
 var timer = 1 #Timer para o funcionamento dos anos no jogo 
 
+#Variáveis da população 
+var pessoasvivas = 0
+
 func _ready():
 	$HUD/Label.hide() #Esconde o texto da mensagem 
 	$Button.hide() #Esconde o botão da informação
@@ -142,11 +145,19 @@ func _on_SpeedTime_pressed():
 		$Timer/SpeedTime/AnimatedSprite.animation = "tempo_1"
 		$Timer.wait_time = 1 #Reseta a velocidade do tempo para 1 
 
+#Funções para a chamada da busca de recursos
+#Função que chama a função do cálculo para pegar comida  
 func _on_Recursos_comida():
 	$Recursos.pegaralimento($Populacao.quantidadeT,dinheiro)
-
+	
+#Função que chama a função do cálculo para pegar madeira 
 func _on_Recursos_madeira():
 	$Recursos.pegarmadeira($Populacao.quantidadeT,dinheiro)
-
+	
+#Função que chama a função do cálculo para pegar madeira
 func _on_Recursos_metal():
 	$Recursos.pegarmetal($Populacao.quantidadeT,dinheiro)
+
+#Funções de upgrade
+func _on_Upgrades_castelo():
+	pessoasvivas = $Upgrades.castelo($Recursos.madeira ,$Recursos.madeiraN ,$Recursos.metal ,$Recursos.metalN ,$Recursos.dinheiro, $Recursos.dinheiroN)   

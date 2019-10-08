@@ -6,6 +6,12 @@ var cont  = 0 #Contador auxiliar
 #Variáveis para a animação 
 onready var TweenNode = get_node("Tween")
 
+#Variáveis para os recursos necessários 
+var madeiraN = 100   
+var metalN = 100 
+var dinheiroN = 100 
+var alimentoN = 100 
+
 #Variáveis para os recursos iniciais 
 var madeira = 50 #Quantidade de madeira
 var metal = 50 #Quantidade de metal
