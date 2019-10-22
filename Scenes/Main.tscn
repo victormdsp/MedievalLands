@@ -6,25 +6,25 @@
 [ext_resource path="res://Scenes/Recursos.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Informações.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Sprites/Menu/tempo_1.svg" type="Texture" id=7]
-[ext_resource path="res://Sprites/Menu/tempo_3.svg" type="Texture" id=8]
-[ext_resource path="res://Sprites/Menu/tempo_2.svg" type="Texture" id=9]
+[ext_resource path="res://Sprites/Menu/tempo_3.svg" type="Texture" id=7]
+[ext_resource path="res://Sprites/Menu/tempo_2.svg" type="Texture" id=8]
+[ext_resource path="res://Sprites/Menu/tempo_1.svg" type="Texture" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "tempo_1",
+"name": "tempo_3",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "tempo_3",
+"name": "tempo_2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "tempo_2",
+"name": "tempo_1",
 "speed": 5.0
 } ]
 
