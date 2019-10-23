@@ -4,6 +4,7 @@ extends Node
 var aux = 0 #Variável auxiliar  
 var botao = 0 #Variável informações 
 var dinheiroaux = 0
+var dinheirofinal = 0
 
 #Variáveis dos Eventos
 var event = 4 #Variável de escolha de eventos
@@ -45,6 +46,9 @@ func new_game():
 	$Timer.start() #Start do tempo 
 	$Button.show()
 	$Timer/SpeedTime.show()
+	$Populacao.aux = 1
+	$Recursos.aux = 1
+	$Upgrades.aux = 1
 
 #Sinal para a contagem do tempo 
 func _on_Timer_timeout():
@@ -154,19 +158,19 @@ func _on_SpeedTime_pressed():
 #Funções para a chamada da busca de recursos
 #Função que chama a função do cálculo para pegar comida  
 func _on_Recursos_comida():
-	var dinheirofinal = $Recursos.pegaralimento($Populacao.quantidadeT,dinheiroaux)
+	dinheirofinal = $Recursos.pegaralimento($Populacao.quantidadeT,dinheiroaux,$Recursos.dinheiroN)
 	dinheiroaux = dinheirofinal
 	
 #Função que chama a função do cálculo para pegar madeira 
 func _on_Recursos_madeira():
-	var dinheirofinal = $Recursos.pegaralimento($Populacao.quantidadeT,dinheiroaux)
+	dinheirofinal = $Recursos.pegaralimento($Populacao.quantidadeT,dinheiroaux,$Recursos.dinheiroN)
 	dinheiroaux = dinheirofinal
 	
 #Função que chama a função do cálculo para pegar madeira
 func _on_Recursos_metal():
-	var dinheirofinal = $Recursos.pegaralimento($Populacao.quantidadeT,dinheiroaux)
+	dinheirofinal = $Recursos.pegaralimento($Populacao.quantidadeT,dinheiroaux,$Recursos.dinheiroN)
 	dinheiroaux = dinheirofinal
 	
 #Funções de upgrade
 func _on_Upgrades_castelo():
-	pessoasvivas = $Upgrades.castelo($Recursos.madeira ,$Recursos.madeiraN ,$Recursos.metal ,$Recursos.metalN ,$Recursos.dinheiro, $Recursos.dinheiroN)   
+	pessoasvivas = $Upgrades.castelo($Recursos.madeira ,$Recursos.madeiraN ,$Recursos.metal ,$Recursos.metalN ,$Populacao.dinheiro, $Recursos.dinheiroN)   
