@@ -3,6 +3,7 @@ extends Node2D
 #Variáveis usadas
 var cont  = 0 #Contador aux
 onready var TweenNode = get_node("Tween")
+var aux = 0 #Variável auxiliar 
 
 #Variáveis do Castelo
 var nivelC = 1 #Nível do castelo
@@ -27,11 +28,14 @@ func _input(event):
 
 #Sinal de botão 
 func _on_Button_pressed():
-	$AnimatedSprite.show() #Mostrar a aba quando pressionado 
-	$nivel.show()
-	TweenNode.interpolate_method(self, "movimento", 630, 310, 1.0, Tween.TRANS_BACK, Tween.EASE_OUT)
-	TweenNode.start()
-	cont += 1
+	if aux == 0:
+		$AnimatedSprite.hide()
+	else:
+		$AnimatedSprite.show() #Mostrar a aba quando pressionado 
+		$nivel.show()
+		TweenNode.interpolate_method(self, "movimento", 630, 310, 1.0, Tween.TRANS_BACK, Tween.EASE_OUT)
+		TweenNode.start()
+		cont += 1
 	if cont == 2:
 		TweenNode.interpolate_method(self, "movimento", 310, 630, 1.0, Tween.TRANS_BACK, Tween.EASE_OUT)
 		cont = 0 #Reset do contador
@@ -48,6 +52,16 @@ func castelo(madeiraAtual, madeiraN ,metalAtual ,metalN ,dinheiroAtual, dinheiro
 		madeiraN = madeiraN + (25/100 * madeiraN)
 		metalN = metalN + (25/100 * metalN)
 		dinheiroN = dinheiroN + (25/100 * dinheiroN)
+		
+		if nivelC == 2:
+			$AnimatedSprite2.animation = "nv2"
+			
+		elif nivelC == 3:
+			$AnimatedSprite2.animation = "nv3"
+			 
+		elif nivelC == 4:
+			$AnimatedSprite2.animation = "nv4"
+			 
 		return quantidadePopulacao #Retorna a quantidade de população atual após o upgrade
 	else:
 		print("Você não possui os recursos necessários")

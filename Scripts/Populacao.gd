@@ -8,9 +8,13 @@ var quantidadeA = 0 #Quantidade de agricultores
  
 #Variáveis auxiliares
 var cont  = 0 #Contador aux
+var aux = 0 #Variável Auxiliar
 
 #Variáveis da animação
 onready var TweenNode = get_node("Tween")
+
+#Variáveis recurso 
+var dinheiro = 0 
 
 #Função ready
 func _ready():
@@ -31,20 +35,22 @@ func _input(event):
     
 #Sinal de botão 
 func _on_Button_pressed():
-	$AnimatedSprite.show() #Mostrar a aba quando pressionado 
-	$PopulacaoLabel.show()
-	TweenNode.interpolate_method(self, "movimento", 50+502, 280, 1.0, Tween.TRANS_BACK, Tween.EASE_OUT)
-	TweenNode.start()
-	cont += 1
-	if cont == 2:
-		#$AnimatedSprite.hide() #Esconder caso o botão seja pressionado novamente
-		TweenNode.interpolate_method(self, "movimento", 280, 50+550, 1.0, Tween.TRANS_BACK, Tween.EASE_OUT)
-		cont = 0 #Reset do contador
+	if aux == 0:
+		$AnimatedSprite.hide()
+	else:
+		$AnimatedSprite.show() #Mostrar a aba quando pressionado 
+		$PopulacaoLabel.show()
+		TweenNode.interpolate_method(self, "movimento", 50+502, 280, 1.0, Tween.TRANS_BACK, Tween.EASE_OUT)
+		TweenNode.start()
+		cont += 1
+		if cont == 2:
+			#$AnimatedSprite.hide() #Esconder caso o botão seja pressionado novamente
+			TweenNode.interpolate_method(self, "movimento", 280, 50+550, 1.0, Tween.TRANS_BACK, Tween.EASE_OUT)
+			cont = 0 #Reset do contador
 		
 func movimento(value):
 	$AnimatedSprite.position.y = value + 12
 	$PopulacaoLabel.rect_position.y = value
-	pass
 
 #Função nascer ( baseada no tempo , quantas pessoas nascem no jogo)		
 func nascer():
@@ -52,6 +58,5 @@ func nascer():
 	return popu #Retorna a variável popu
 	
 func imposto():
-	var dinheiro 
-	dinheiro = quantidade * 2
+	dinheiro = quantidade * 2 + dinheiro
 	return dinheiro 

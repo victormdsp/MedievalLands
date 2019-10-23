@@ -25,6 +25,7 @@ func _on_Button2_pressed():
 #Função new_game para o start do jogo 
 func new_game():
 	#Ao iniciar mostrar todos os menus e botões do jogo 
+	
 	$StartButton.hide() #Esconde o botão de start game
 	emit_signal("hit") #Emite um sinal para a classe main 
 
