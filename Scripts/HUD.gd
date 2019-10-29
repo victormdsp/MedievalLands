@@ -9,18 +9,9 @@ signal map #Sinal para quando o mapa for pressionado , ser o principal HUD a apa
 func _ready():
 	#Após o início do programa , esconder todos os botões da tela
 	$Time.hide()
-	$MapaSprite.hide()
-	$Informacoes.hide()
-	
-
-#Função para saber se o botão do mapa foi pressionada
-func _on_Button2_pressed():
-	emit_signal("map")
-	$MapaSprite.show() #Mostra o mapa caso o botão seja pressionado
-	cont[1] += 1
-	if cont[1] == 2: 
-		$MapaSprite.hide() #Esconde o mapa caso o jogador clique novamente no botão
-		cont[1] = 0 #Reseta o contador para saber que a aba foi fechada
+	$comida.hide()
+	$metal.hide()
+	$madeira.hide()
 
 #Função new_game para o start do jogo 
 func new_game():

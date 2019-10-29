@@ -54,7 +54,7 @@ func movimento(value):
 
 #Função nascer ( baseada no tempo , quantas pessoas nascem no jogo)		
 func nascer():
-	var popu = randi()%quantidade+1/ 2 #Variável para randomizar uma quantidade de pessoas que nascem 
+	var popu = quantidade * 1/4 #Variável para randomizar uma quantidade de pessoas que nascem 
 	return popu #Retorna a variável popu
 	
 func imposto():
