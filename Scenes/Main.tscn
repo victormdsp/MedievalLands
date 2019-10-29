@@ -10,11 +10,11 @@
 [ext_resource path="res://Scenes/Informações.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Recursos.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Sprites/Menu/tempo_2.svg" type="Texture" id=11]
-[ext_resource path="res://Sprites/Menu/tempo_1.svg" type="Texture" id=12]
-[ext_resource path="res://Sprites/Menu/tempo_3.svg" type="Texture" id=13]
+[ext_resource path="res://Sprites/Menu/tempo_1.svg" type="Texture" id=11]
+[ext_resource path="res://Sprites/Menu/tempo_3.svg" type="Texture" id=12]
+[ext_resource path="res://Sprites/Menu/tempo_2.svg" type="Texture" id=13]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
@@ -32,21 +32,21 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "tempo_2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "tempo_1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "tempo_3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "tempo_2",
 "speed": 5.0
 } ]
 
@@ -76,7 +76,7 @@ texture = ExtResource( 2 )
 [node name="Farm" type="AnimatedSprite" parent="."]
 position = Vector2( 148.935, 418.743 )
 scale = Vector2( 0.528401, 0.48669 )
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "nv1"
 
 [node name="Upgrades" parent="." instance=ExtResource( 6 )]
@@ -115,7 +115,7 @@ margin_bottom = 90.0
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Timer/SpeedTime"]
 position = Vector2( 27.9685, 8.80254 )
 scale = Vector2( 0.2, 0.2 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "tempo_1"
 [connection signal="castelo" from="Upgrades" to="." method="_on_Upgrades_castelo"]
 [connection signal="civil" from="Upgrades" to="." method="_on_Upgrades_civil"]
