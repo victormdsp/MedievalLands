@@ -1,25 +1,25 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Populacao.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Informações.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Upgrades.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Recursos.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Informações.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Populacao.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Recursos.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Sprites/Menu/tempo_2.svg" type="Texture" id=7]
-[ext_resource path="res://Sprites/Menu/tempo_1.svg" type="Texture" id=8]
+[ext_resource path="res://Sprites/Menu/tempo_1.svg" type="Texture" id=7]
+[ext_resource path="res://Sprites/Menu/tempo_2.svg" type="Texture" id=8]
 [ext_resource path="res://Sprites/Menu/tempo_3.svg" type="Texture" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "tempo_2",
+"name": "tempo_1",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "tempo_1",
+"name": "tempo_2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
@@ -31,24 +31,25 @@ animations = [ {
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
 
-[node name="Populacao" parent="." instance=ExtResource( 2 )]
-position = Vector2( -126.667, 238.166 )
-scale = Vector2( 0.5, 0.62 )
+[node name="Informacoes" parent="." instance=ExtResource( 2 )]
+position = Vector2( -2.16635, 2.86468 )
 
 [node name="Upgrades" parent="." instance=ExtResource( 3 )]
 position = Vector2( 112.458, 227.17 )
 scale = Vector2( 0.5, 0.62 )
 
-[node name="Recursos" parent="." instance=ExtResource( 4 )]
-position = Vector2( 242.952, 368.567 )
+[node name="Populacao" parent="." instance=ExtResource( 4 )]
+position = Vector2( -126.667, 238.166 )
 scale = Vector2( 0.5, 0.62 )
 
-[node name="Informacoes" parent="." instance=ExtResource( 5 )]
-position = Vector2( -2.16635, 2.86468 )
+[node name="Recursos" parent="." instance=ExtResource( 5 )]
+position = Vector2( 242.952, 368.567 )
+scale = Vector2( 0.5, 0.62 )
 
 [node name="HUD" parent="." instance=ExtResource( 6 )]
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
 
 [node name="SpeedTime" type="Button" parent="Timer"]
 margin_left = 11.0

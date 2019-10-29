@@ -3,14 +3,14 @@
 [ext_resource path="res://Scripts/Populacao.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Home/Home_lv_1.svg" type="Texture" id=2]
 [ext_resource path="res://Sprites/farm/farm_lv_1.svg" type="Texture" id=3]
-[ext_resource path="res://Sprites/Grass/Grass.svg" type="Texture" id=4]
-[ext_resource path="res://Sprites/Menu/New_big_menu.svg" type="Texture" id=5]
-[ext_resource path="res://Fonts/Breathe Fire.otf" type="DynamicFontData" id=6]
-[ext_resource path="res://Sprites/Menu/New_menu.svg" type="Texture" id=7]
+[ext_resource path="res://Sprites/Menu/New_big_menu.svg" type="Texture" id=4]
+[ext_resource path="res://Fonts/Breathe Fire.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://Sprites/Menu/New_menu.svg" type="Texture" id=6]
+[ext_resource path="res://Sprites/Grass/Grass.svg" type="Texture" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "aba",
 "speed": 5.0
@@ -18,12 +18,11 @@ animations = [ {
 
 [sub_resource type="DynamicFont" id=2]
 size = 45
-font_data = ExtResource( 6 )
-
+font_data = ExtResource( 5 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "botao",
 "speed": 5.0
@@ -31,7 +30,7 @@ animations = [ {
 
 [sub_resource type="DynamicFont" id=4]
 size = 48
-font_data = ExtResource( 6 )
+font_data = ExtResource( 5 )
 
 [node name="Populacao" type="Node2D"]
 position = Vector2( -138.675, 122.094 )
@@ -44,14 +43,9 @@ scale = Vector2( 0.419215, 0.419215 )
 texture = ExtResource( 2 )
 
 [node name="farm_lv_1" type="Sprite" parent="."]
-position = Vector2( 1375.42, 251.281 )
-scale = Vector2( 1, 0.84682 )
+position = Vector2( 1551.81, 258.735 )
+scale = Vector2( 1.14532, 0.842388 )
 texture = ExtResource( 3 )
-
-[node name="Grass" type="Sprite" parent="."]
-position = Vector2( 952.046, 357.246 )
-scale = Vector2( 1.26929, 0.523147 )
-texture = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 525.391, 552.783 )
@@ -94,6 +88,11 @@ custom_fonts/font = SubResource( 4 )
 text = "Population "
 align = 1
 valign = 1
+
+[node name="Grass" type="Sprite" parent="Button"]
+position = Vector2( 582.046, -144.754 )
+scale = Vector2( 1.26929, 0.523147 )
+texture = ExtResource( 7 )
 
 [node name="Tween" type="Tween" parent="."]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

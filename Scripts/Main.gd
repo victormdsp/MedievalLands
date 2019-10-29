@@ -33,7 +33,7 @@ func new_game():
 	$Populacao/Button/AnimatedSprite.show()
 	$Populacao/Button/Label.show()
 	$Populacao/Button.show()
-	$Populacao/PopulacaoLabel.text = str("Population: ",$Populacao.quantidade)
+	$Populacao/PopulacaoLabel.text = str("Population: \n",$Populacao.quantidade)
 	$Recursos/Button/AnimatedSprite.show()
 	$Recursos/Button/Label.show()
 	$Recursos/Button.show()
@@ -58,7 +58,7 @@ func _on_Timer_timeout():
 		dinheiroaux = $Populacao.imposto() + dinheiroaux
 		armazemPop = $Populacao.nascer() #Chamda da função nascer e armazena na variável aux2
 		auxpop = populacao(armazemPop,0) #Chamada da função para atualizar população
-		$Populacao/PopulacaoLabel.text =  str("Population: ",$Populacao.quantidade) 
+		$Populacao/PopulacaoLabel.text =  str("Population: \n",$Populacao.quantidade) 
 		cont += 10 #Contador aumenta para mantes de 10 em 10 anos
 		
 	if timer == contimerEvento:
@@ -163,12 +163,12 @@ func _on_Recursos_comida():
 	
 #Função que chama a função do cálculo para pegar madeira 
 func _on_Recursos_madeira():
-	dinheirofinal = $Recursos.pegaralimento($Populacao.quantidadeT,dinheiroaux,$Recursos.dinheiroN)
+	dinheirofinal = $Recursos.pegarmadeira($Populacao.quantidadeT,dinheiroaux,$Recursos.dinheiroN)
 	dinheiroaux = dinheirofinal
 	
 #Função que chama a função do cálculo para pegar madeira
 func _on_Recursos_metal():
-	dinheirofinal = $Recursos.pegaralimento($Populacao.quantidadeT,dinheiroaux,$Recursos.dinheiroN)
+	dinheirofinal = $Recursos.pegarmetal($Populacao.quantidadeT,dinheiroaux,$Recursos.dinheiroN)
 	dinheiroaux = dinheirofinal
 	
 #Funções de upgrade
