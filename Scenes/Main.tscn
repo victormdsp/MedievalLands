@@ -8,11 +8,11 @@
 [ext_resource path="res://Scenes/Recursos.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Sprites/Menu/tempo_1.svg" type="Texture" id=8]
-[ext_resource path="res://Sprites/Menu/tempo_3.svg" type="Texture" id=9]
-[ext_resource path="res://Sprites/Menu/tempo_2.svg" type="Texture" id=10]
+[ext_resource path="res://Sprites/Menu/tempo_2.svg" type="Texture" id=9]
+[ext_resource path="res://Sprites/Menu/tempo_3.svg" type="Texture" id=10]
 [ext_resource path="res://Sprites/farm/farm_lv_3.svg" type="Texture" id=11]
-[ext_resource path="res://Sprites/farm/farm_lv_2.svg" type="Texture" id=12]
-[ext_resource path="res://Sprites/farm/farm_lv_1.svg" type="Texture" id=13]
+[ext_resource path="res://Sprites/farm/farm_lv_1.svg" type="Texture" id=12]
+[ext_resource path="res://Sprites/farm/farm_lv_2.svg" type="Texture" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -23,12 +23,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "tempo_3",
+"name": "tempo_2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "tempo_2",
+"name": "tempo_3",
 "speed": 5.0
 } ]
 
@@ -41,12 +41,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "nv2",
+"name": "nv1",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "nv1",
+"name": "nv2",
 "speed": 5.0
 } ]
 
