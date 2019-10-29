@@ -2,10 +2,10 @@
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Nuvem/nuvvem.svg" type="Texture" id=2]
-[ext_resource path="res://Scenes/Upgrades.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Sprites/farm/farm_lv_3.svg" type="Texture" id=4]
-[ext_resource path="res://Sprites/farm/farm_lv_2.svg" type="Texture" id=5]
-[ext_resource path="res://Sprites/farm/farm_lv_1.svg" type="Texture" id=6]
+[ext_resource path="res://Sprites/farm/farm_lv_3.svg" type="Texture" id=3]
+[ext_resource path="res://Sprites/farm/farm_lv_2.svg" type="Texture" id=4]
+[ext_resource path="res://Sprites/farm/farm_lv_1.svg" type="Texture" id=5]
+[ext_resource path="res://Scenes/Upgrades.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Populacao.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Informações.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Recursos.tscn" type="PackedScene" id=9]
@@ -16,17 +16,17 @@
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "nv3",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "nv2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "nv1",
 "speed": 5.0
@@ -73,15 +73,22 @@ position = Vector2( 766.612, 81.8393 )
 scale = Vector2( 0.306192, 0.314735 )
 texture = ExtResource( 2 )
 
-[node name="Upgrades" parent="." instance=ExtResource( 3 )]
-position = Vector2( 112.458, 227.17 )
-scale = Vector2( 0.5, 0.62 )
-
 [node name="Farm" type="AnimatedSprite" parent="."]
 position = Vector2( 148.935, 418.743 )
 scale = Vector2( 0.528401, 0.48669 )
 frames = SubResource( 2 )
 animation = "nv1"
+
+[node name="Upgrades" parent="." instance=ExtResource( 6 )]
+position = Vector2( 112.458, 227.17 )
+scale = Vector2( 0.5, 0.62 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 892.0
+margin_top = 489.0
+margin_right = 1017.0
+margin_bottom = 534.0
+text = "info"
 
 [node name="Populacao" parent="." instance=ExtResource( 7 )]
 position = Vector2( -126.667, 238.166 )
@@ -110,16 +117,10 @@ position = Vector2( 27.9685, 8.80254 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 1 )
 animation = "tempo_1"
-
-[node name="Button" type="Button" parent="."]
-margin_left = 892.0
-margin_top = 489.0
-margin_right = 1017.0
-margin_bottom = 534.0
-text = "info"
 [connection signal="castelo" from="Upgrades" to="." method="_on_Upgrades_castelo"]
 [connection signal="civil" from="Upgrades" to="." method="_on_Upgrades_civil"]
 [connection signal="exercito" from="Upgrades" to="." method="_on_Upgrades_exercito"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="comida" from="Recursos" to="." method="_on_Recursos_comida"]
 [connection signal="madeira" from="Recursos" to="." method="_on_Recursos_madeira"]
 [connection signal="metal" from="Recursos" to="." method="_on_Recursos_metal"]
@@ -127,4 +128,3 @@ text = "info"
 [connection signal="map" from="HUD" to="." method="_on_HUD_map"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="Timer/SpeedTime" to="." method="_on_SpeedTime_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
