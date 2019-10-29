@@ -1,35 +1,35 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Recursos.gd" type="Script" id=1]
-[ext_resource path="res://Fonts/Breathe Fire.otf" type="DynamicFontData" id=2]
-[ext_resource path="res://Sprites/Menu/New_big_menu.svg" type="Texture" id=3]
+[ext_resource path="res://Sprites/Menu/New_big_menu.svg" type="Texture" id=2]
+[ext_resource path="res://Fonts/Breathe Fire.otf" type="DynamicFontData" id=3]
 [ext_resource path="res://Sprites/Menu/New_menu.svg" type="Texture" id=4]
-
-[sub_resource type="DynamicFont" id=7]
-size = 40
-font_data = ExtResource( 2 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "aba",
 "speed": 5.0
 } ]
 
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+font_data = ExtResource( 3 )
+
 [sub_resource type="DynamicFont" id=4]
 size = 50
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=5]
-size = 50
-font_data = ExtResource( 2 )
+size = 40
+font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=6]
-size = 50
-font_data = ExtResource( 2 )
-
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
@@ -37,23 +37,14 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=7]
 size = 50
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 
 [node name="Recursos" type="Node2D"]
-position = Vector2( 1339.36, -50.4514 )
+position = Vector2( 321.471, 256.279 )
 scale = Vector2( 0.59, 0.73 )
 script = ExtResource( 1 )
-
-[node name="mensagem" type="Label" parent="."]
-margin_left = 487.666
-margin_top = 221.789
-margin_right = 1040.67
-margin_bottom = 420.789
-custom_fonts/font = SubResource( 7 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Voce nao possui recursos suficiente"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 756.275, 340.75 )
@@ -71,7 +62,7 @@ margin_left = 628.436
 margin_top = 470.913
 margin_right = 893.436
 margin_bottom = 532.913
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
@@ -83,7 +74,7 @@ margin_left = 625.595
 margin_top = 333.046
 margin_right = 890.595
 margin_bottom = 395.046
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 text = "Wood"
@@ -94,11 +85,22 @@ margin_left = 625.536
 margin_top = 400.287
 margin_right = 890.536
 margin_bottom = 462.287
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 text = "Metal"
 flat = true
+
+[node name="mensagem" type="Label" parent="."]
+anchor_right = 1.0
+margin_left = 952.756
+margin_top = 400.159
+margin_right = 1515.76
+margin_bottom = 443.159
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Voce nao possui recursos suficiente"
+align = 1
 
 [node name="Button" type="Button" parent="."]
 margin_left = 617.0
@@ -107,9 +109,9 @@ margin_right = 912.0
 margin_bottom = 353.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Button"]
-position = Vector2( 137.629, 50.1531 )
+position = Vector2( 135.652, 51.7508 )
 scale = Vector2( 0.524, 0.688 )
-frames = SubResource( 2 )
+frames = SubResource( 6 )
 animation = "botao"
 
 [node name="Label" type="Label" parent="Button"]
@@ -117,7 +119,7 @@ margin_left = 14.7279
 margin_top = 3.27203
 margin_right = 293.728
 margin_bottom = 112.272
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 7 )
 text = "Recursos
 "
 align = 1

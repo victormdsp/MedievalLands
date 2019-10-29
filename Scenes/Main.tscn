@@ -1,22 +1,21 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Populacao.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Upgrades.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Recursos.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Informações.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Sprites/Menu/tempo_2.svg" type="Texture" id=7]
+[ext_resource path="res://Sprites/Nuvem/nuvvem.svg" type="Texture" id=2]
+[ext_resource path="res://Scenes/Informações.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Upgrades.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Populacao.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Recursos.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Sprites/Menu/tempo_1.svg" type="Texture" id=8]
 [ext_resource path="res://Sprites/Menu/tempo_3.svg" type="Texture" id=9]
+[ext_resource path="res://Sprites/Menu/tempo_2.svg" type="Texture" id=10]
+[ext_resource path="res://Sprites/farm/farm_lv_3.svg" type="Texture" id=11]
+[ext_resource path="res://Sprites/farm/farm_lv_2.svg" type="Texture" id=12]
+[ext_resource path="res://Sprites/farm/farm_lv_1.svg" type="Texture" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "tempo_2",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "tempo_1",
@@ -26,29 +25,73 @@ animations = [ {
 "loop": true,
 "name": "tempo_3",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "tempo_2",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "nv3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "nv2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "nv1",
+"speed": 5.0
 } ]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
 
-[node name="Populacao" parent="." instance=ExtResource( 2 )]
-position = Vector2( -126.667, 238.166 )
-scale = Vector2( 0.5, 0.62 )
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0.764706, 1, 1 )
 
-[node name="Upgrades" parent="." instance=ExtResource( 3 )]
+[node name="nuvvem3" type="Sprite" parent="."]
+position = Vector2( 473.97, 293.448 )
+scale = Vector2( 0.236488, 0.257255 )
+texture = ExtResource( 2 )
+
+[node name="nuvvem2" type="Sprite" parent="."]
+position = Vector2( 167.557, 187.486 )
+scale = Vector2( 0.398824, 0.425948 )
+texture = ExtResource( 2 )
+
+[node name="nuvvem" type="Sprite" parent="."]
+position = Vector2( 766.612, 81.8393 )
+scale = Vector2( 0.306192, 0.314735 )
+texture = ExtResource( 2 )
+
+[node name="Informacoes" parent="." instance=ExtResource( 3 )]
+position = Vector2( -2.16635, 2.86468 )
+
+[node name="Upgrades" parent="." instance=ExtResource( 4 )]
 position = Vector2( 112.458, 227.17 )
 scale = Vector2( 0.5, 0.62 )
 
-[node name="Recursos" parent="." instance=ExtResource( 4 )]
+[node name="Populacao" parent="." instance=ExtResource( 5 )]
+position = Vector2( -126.667, 238.166 )
+scale = Vector2( 0.5, 0.62 )
+
+[node name="Recursos" parent="." instance=ExtResource( 6 )]
 position = Vector2( 242.952, 368.567 )
 scale = Vector2( 0.5, 0.62 )
 
-[node name="Informacoes" parent="." instance=ExtResource( 5 )]
-position = Vector2( -2.16635, 2.86468 )
-
-[node name="HUD" parent="." instance=ExtResource( 6 )]
+[node name="HUD" parent="." instance=ExtResource( 7 )]
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
 
 [node name="SpeedTime" type="Button" parent="Timer"]
 margin_left = 11.0
@@ -68,7 +111,15 @@ margin_top = 489.0
 margin_right = 1017.0
 margin_bottom = 534.0
 text = "info"
+
+[node name="Farm" type="AnimatedSprite" parent="."]
+position = Vector2( 148.935, 418.743 )
+scale = Vector2( 0.528401, 0.48669 )
+frames = SubResource( 2 )
+animation = "nv1"
 [connection signal="castelo" from="Upgrades" to="." method="_on_Upgrades_castelo"]
+[connection signal="civil" from="Upgrades" to="." method="_on_Upgrades_civil"]
+[connection signal="exercito" from="Upgrades" to="." method="_on_Upgrades_exercito"]
 [connection signal="comida" from="Recursos" to="." method="_on_Recursos_comida"]
 [connection signal="madeira" from="Recursos" to="." method="_on_Recursos_madeira"]
 [connection signal="metal" from="Recursos" to="." method="_on_Recursos_metal"]

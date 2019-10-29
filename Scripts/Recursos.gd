@@ -61,23 +61,27 @@ func movimento(value):
 	$PegarR.rect_position.y = value + 125
 	$mensagem.rect_position.y = value + 75
 	
-func pegarmadeira(trabalhadores,dinheiroAtual):
+func pegarmadeira(trabalhadores,dinheiroAtual, dinheiroN):
 	if trabalhadores <= 0 or dinheiroAtual <= dinheiroN:
 		faltaderecursos()
 		return dinheiroAtual
 			
 	else:	
-		madeira = trabalhadores / 2
+		print(dinheiroAtual)
+		madeira = madeira + (trabalhadores % 5)
+		print("MAD: ", madeira)
 		dinheiroAtual = dinheiroAtual - dinheiroN
 		return dinheiroAtual
 
-func pegarmetal(trabalhadores, dinheiroAtual):
+func pegarmetal(trabalhadores, dinheiroAtual, dinheiroN):
 	if trabalhadores <= 0 or dinheiroAtual <= dinheiroN:
 		faltaderecursos()
 		return dinheiroAtual
 			
-	else:	
-		metal = trabalhadores / 2
+	else:
+		print(dinheiroAtual)	
+		metal = metal + (trabalhadores % 5)
+		print("M: ", metal)
 		dinheiroAtual = dinheiroAtual - dinheiroN
 		return dinheiroAtual
 		
@@ -87,7 +91,10 @@ func pegaralimento(trabalhadores, dinheiroAtual,dinheiroN):
 		return dinheiroAtual
 			
 	else:
-		alimento = trabalhadores / 2
+		print(dinheiroAtual)
+		alimento = alimento + (5/100 * alimento)
+		print("ALI: ", alimento)
+		dinheiroAtual = dinheiroAtual - dinheiroN
 		return dinheiroAtual - dinheiroN
 		
 func _on_PegarR_pressed():
@@ -101,6 +108,6 @@ func _on_PegarC_pressed():
 
 func faltaderecursos():
 	$mensagem.show()
-	$mensagem.text = "Você não possui recursos suficiente"
+	$mensagem.text = "Voce nao possui recursos suficiente"
 	yield(get_tree().create_timer(1), "timeout")
 	$mensagem.hide()
